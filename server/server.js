@@ -31,13 +31,21 @@ app.get("/", (req, res) => {
 });
 
 // TODO: Add your Task routes here
-app.post("/api/tasks", async (req, res) => {
+app.post('/tasks', async (req, res) => {
   try {
-    const task = new Task(req.body);
+    const { title, completed } = req.body;
+
+    const task = new Task({
+      title,
+      completed
+    });
+
     const savedTask = await task.save();
+
     res.status(201).json(savedTask);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    console.error("Error creating task:", error);
+    res.status(500).json({ error: "Failed to create task" });
   }
 });
 
