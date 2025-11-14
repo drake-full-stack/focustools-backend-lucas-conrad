@@ -31,7 +31,16 @@ app.get("/", (req, res) => {
 });
 
 // TODO: Add your Task routes here
-// POST /api/tasks
+app.post("/api/tasks", async (req, res) => {
+  try {
+    const task = new Task(req.body);
+    const savedTask = await task.save();
+    res.status(201).json(savedTask);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
 // GET /api/tasks
 // GET /api/tasks/:id
 // PUT /api/tasks/:id
