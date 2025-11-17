@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 });
 
 // TODO: Add your Task routes here
-app.post('/tasks', async (req, res) => {
+app.post('/api/tasks', async (req, res) => {
   try {
     const { title, completed } = req.body;
 
@@ -45,7 +45,7 @@ app.post('/tasks', async (req, res) => {
     res.status(201).json(savedTask);
   } catch (error) {
     console.error("Error creating task:", error);
-    res.status(500).json({ error: "Failed to create task" });
+    res.status(400).json({ error: "Failed to create task" });
   }
 });
 
