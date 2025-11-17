@@ -33,14 +33,9 @@ app.get("/", (req, res) => {
 // TODO: Add your Task routes here
 app.post('/api/tasks', async (req, res) => {
   try {
-    const { title, completed } = req.body;
+    const newTask = new Task(req.body);
 
-    const task = new Task({
-      title,
-      completed
-    });
-
-    const savedTask = await task.save();
+    const savedTask = await newTask.save();
 
     res.status(201).json(savedTask);
   } catch (error) {
@@ -50,6 +45,15 @@ app.post('/api/tasks', async (req, res) => {
 });
 
 // GET /api/tasks
+app.get('/api/tasks', async (req, res) => {
+  try {
+    const tasks = await Task.find();
+    res.json(tasks);
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+    res.status(400).json({ error: "Failed to fetch tasks" });
+}});
+
 // GET /api/tasks/:id
 // PUT /api/tasks/:id
 // DELETE /api/tasks/:id
