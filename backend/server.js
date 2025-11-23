@@ -15,8 +15,8 @@ mongoose
   .catch((error) => console.error("❌ Error:", error));
   
 // Import models
-app.use("/api/tasks", require("./routes/tasks"));
-app.use("/api/sessions", require("./routes/sessions"));
+app.use("/tasks", require("./routes/tasks"));
+app.use("/sessions", require("./routes/sessions"));
 
 
 
