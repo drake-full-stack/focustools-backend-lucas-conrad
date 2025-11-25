@@ -186,6 +186,7 @@ header p {
 .task-title {
   font-size: 1rem;
   margin-bottom: 0.25rem;
+  color: #333;
 }
 
 .task-meta {
@@ -221,7 +222,7 @@ header p {
 }
 
 .active-task-display {
-  background: #f0f4ff;
+  background: #9e46f6;
   padding: 1.5rem;
   border-radius: 8px;
   margin-bottom: 2rem;
@@ -231,6 +232,7 @@ header p {
 .active-task-display h3 {
   color: #667eea;
   margin: 0.5rem 0;
+  
 }
 
 .pomodoro-count {
