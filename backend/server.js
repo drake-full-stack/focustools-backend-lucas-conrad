@@ -23,7 +23,7 @@ mongoose
 app.use("/tasks", require("./routes/tasks"));
 app.use("/sessions", require("./routes/sessions"));
 
-
+console.log("MONGO_URI on server:", process.env.MONGO_URI);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
